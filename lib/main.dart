@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  return runApp(MaterialApp());
+  return runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text('Sup World'),
+      ),
+    ),
+  ));
 }
+
