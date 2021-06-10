@@ -22,13 +22,12 @@ class LocationList extends StatelessWidget {
         ),
         body: ListView.builder(
           itemCount: this._locations.length,
-          itemBuilder: (BuildContext context, int index) {
-            return _listViewItemBuilder(context, this._locations[index]);
-          },
+          itemBuilder: _listViewItemBuilder,
         ));
   }
 
-  Widget _listViewItemBuilder(BuildContext context, Location location) {
+  Widget _listViewItemBuilder(BuildContext context, int index) {
+    Location location = this._locations[index];
     return ListTile(
       contentPadding: EdgeInsets.all(10.0),
       leading: _itemThumbnail(location),
