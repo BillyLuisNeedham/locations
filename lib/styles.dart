@@ -7,6 +7,9 @@ class Styles {
   static final Color _textColorDefault = _hexToColor('666666');
   static final String _fontNameDefault = 'Muli';
 
+  static final navBarTitle = TextStyle(
+    fontFamily: _fontNameDefault,
+  );
   static final headerLarge = TextStyle(
       fontFamily: _fontNameDefault,
       fontSize: _textSizeLarge,
