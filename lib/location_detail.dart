@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:locations/models/location.dart';
+import 'package:locations/styles.dart';
 
 class LocationDetail extends StatelessWidget {
   final Location location;
@@ -13,13 +14,16 @@ class LocationDetail extends StatelessWidget {
           title: Text(this.location.name),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: _renderBody(context, location),
         ));
   }
 
-  List<Widget> _renderBody(BuildContext context, Location location,) {
+  List<Widget> _renderBody(
+    BuildContext context,
+    Location location,
+  ) {
     List<Widget> result = [];
     result.add(_bannerImage(location.url, 170.0));
     result.addAll(_renderFacts(context, location));
@@ -36,15 +40,26 @@ class LocationDetail extends StatelessWidget {
   }
 
   Widget _sectionTitle(String text) {
-    return Text(text);
+    return Container(
+      padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 10.0),
+      child: Text(text,
+          textAlign: TextAlign.left,
+          style: Styles.headerLarge,
+    ));
   }
 
   Widget _sectionText(String text) {
-    return Text(text);
+    return Container(
+        padding: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
+        child: Text(
+          text,
+          style: Styles.textDefault,
+        ));
   }
 
   Widget _bannerImage(String url, double height) {
     return Container(
+      constraints: BoxConstraints.tightFor(height: height),
       child: Image.network(
         url,
         fit: BoxFit.fitWidth,
